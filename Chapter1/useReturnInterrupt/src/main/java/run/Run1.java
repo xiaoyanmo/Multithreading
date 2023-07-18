@@ -1,0 +1,26 @@
+package run;
+
+import extthread.MyThread1;
+
+public class Run1 {
+    /**
+     * 虽然使用“return；”较“抛异常”法在代码结
+     * 构上可以更加方便地实现线程的停止，不过还是建议
+     * 使用“抛异常”法，因为在catch块中可以对异常的信
+     * 息进行统一的处理，例如，使用“return；”来设计
+     * 代码：
+     *
+     * @param args
+     * @throws InterruptedException
+     */
+    public static void main(String[] args) throws InterruptedException {
+        MyThread1 t = new MyThread1();
+        t.start();
+        // 这个会输出日志
+//        t.interrupt();
+        Thread.sleep(2000);
+        // 逃过中断日志
+        t.interrupt();
+    }
+
+}
